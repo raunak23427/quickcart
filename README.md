@@ -451,5 +451,5 @@ This project is licensed under the [MIT License](LICENSE).
 ---
 
 <p align="center">
-  Built with ❤️ by <strong>Deepanshu Singh and Aditya Giri</strong>
+  Built with ❤️ by <strong>Raunak Kumar Giri
 </p>
