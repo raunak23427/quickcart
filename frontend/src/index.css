@@ -1,0 +1,90 @@
+@import "tailwindcss";
+
+@theme {
+  --color-primary-50: #ecfdf5;
+  --color-primary-100: #d1fae5;
+  --color-primary-200: #a7f3d0;
+  --color-primary-300: #6ee7b7;
+  --color-primary-400: #34d399;
+  --color-primary-500: #10b981;
+  --color-primary-600: #059669; /* Main emerald */
+  --color-primary-700: #047857;
+  --color-primary-800: #065f46;
+  --color-primary-900: #064e3b;
+
+  --color-accent-500: #f59e0b; /* Amber */
+  --color-accent-600: #d97706;
+
+  --font-sans: "Outfit", system-ui, sans-serif;
+  --font-serif: "Sora", serif;
+  
+  --radius-xl: 1.25rem;
+  --radius-2xl: 2rem;
+
+  /* Premium Shadow Tokens */
+  --shadow-soft: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  --shadow-hover: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1);
+
+  /* Theme Transitions */
+  --transition-theme: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* Elegant Dark Mode Variables */
+:root.dark {
+  --color-slate-50: #0a0b10;  /* Rich deeper background */
+  --color-slate-100: #151820; /* Card backgrounds */
+  --color-slate-200: #212530; /* Borders */
+  --color-slate-400: #64748b;
+  --color-slate-500: #94a3b8;
+  --color-slate-600: #cbd5e1;
+  --color-slate-700: #e2e8f0;
+  --color-slate-800: #f1f5f9;
+  
+  --color-white: #151820;      /* Elevated backgrounds */
+  --color-primary-50: #042f2e;
+  --color-primary-100: #064e3b;
+  --color-primary-600: #10b981; /* Vibrance in dark mode */
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 text-slate-800 font-sans antialiased selection:bg-primary-200 selection:text-primary-900;
+    transition: var(--transition-theme);
+  }
+  
+  h1, h2, h3, h4, .font-serif {
+    font-family: var(--font-serif);
+    letter-spacing: -0.02em;
+  }
+}
+
+@layer components {
+  /* Common reusable component styles */
+  .btn-primary {
+    @apply w-full py-3.5 px-4 bg-primary-600 text-white font-semibold rounded-2xl shadow-sm shadow-primary-500/30 hover:bg-primary-700 hover:shadow-hover transform hover:-translate-y-0.5 transition-all duration-300 active:scale-95;
+  }
+
+  .btn-outline {
+    @apply w-full py-3 px-4 bg-transparent text-primary-600 font-semibold rounded-2xl border-2 border-primary-200 hover:bg-primary-50 hover:border-primary-300 transition-all duration-300 active:scale-95;
+  }
+  
+  .btn-danger {
+    @apply w-full py-3 px-4 bg-rose-50 text-rose-600 font-semibold rounded-2xl hover:bg-rose-100 transition-colors duration-300 active:scale-95;
+  }
+
+  /* Card base style */
+  .product-card {
+    @apply bg-white rounded-[2rem] p-5 shadow-soft border border-slate-100 transition-all duration-500 hover:shadow-hover hover:-translate-y-2 relative overflow-hidden;
+    transition: var(--transition-theme), transform 0.4s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .dashboard-card {
+    @apply bg-white rounded-[2rem] p-8 shadow-soft border border-slate-100;
+  }
+  
+  /* Inputs */
+  .input-field {
+    @apply w-full px-5 py-3.5 rounded-2xl border border-slate-200 bg-white focus:outline-none focus:ring-4 focus:ring-primary-500/10 focus:border-primary-500 transition-all duration-300;
+    transition: var(--transition-theme);
+  }
+}
